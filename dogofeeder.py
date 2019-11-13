@@ -5,6 +5,11 @@ GPIO.setmode (GPIO.BOARD)
 GPIO.setup(11, GPIO.OUT)
 GPIO.setup(12, GPIO.OUT)
 
+rele1 = GPIO.input(11)
+rele2 = GPIO.input(12)
+
+print('o rele um estÃ¡ {} e o rele 2 estÃ¡ {}'.format(rele1, rele2))
+
 onoff = int(input('Gostaria de ligar ou desligar o rele \n 1 - Ligar \n 2 - Desligar?\n'))
 if onoff == 1:
 	rele = int(input('Qual rele voce gostaria de acionar?'))
@@ -18,8 +23,8 @@ if onoff == 1:
 	else:
 		print('Nenhum rele valido foi acionado, tente outro numero\n')
 
-elif off == 2:
-	rele = int(input('Qual rele voce gostaria de desacionar?\n')
+elif onoff == 2:
+	rele = int(input('Qual rele voce gostaria de desacionar?\n'))
 	if rele == 1:
 		GPIO.output(11,0)
 		print('Rele 1 desligado\n')
