@@ -1,12 +1,22 @@
+#importa biblioteca para leitura e gravacao de gpios
 import RPi.GPIO as GPIO
 
+#seleciona o modo de leitura das gpios
 GPIO.setmode (GPIO.BOARD)
 
+#declara se o pino sera lido ou gravado
 GPIO.setup(11, GPIO.OUT)
 GPIO.setup(12, GPIO.OUT)
+GPIO.setup(13, GPIO.IN)
+GPIO.setup(15, GPIO.IN)
 
+#grava a variavel com o valor da gpio
 rele1 = GPIO.input(11)
 rele2 = GPIO.input(12)
+b1 = GPIO.input(13)
+b2 = GPIO.input(15)
+
+print('estados dos botoes {},{}'.format(b1,b2))
 
 print('o rele um estÃ¡ {} e o rele 2 estÃ¡ {}'.format(rele1, rele2))
 
@@ -33,3 +43,4 @@ elif onoff == 2:
 		print('Rele 2 desligado\n')
 	else:
 		print('Nenhum rele valido foi desacionado, tente outro numero\n')
+		
